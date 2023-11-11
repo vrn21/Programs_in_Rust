@@ -1,4 +1,3 @@
-use std::io;
 #[derive(Debug)]
 
 
@@ -21,7 +20,7 @@ impl Rectangle{
         2*(self.height + self.width)
     }
 
-    fn can_fit(&self,other:Self) -> bool{
+    fn can_fit(&self,other: Self) -> bool{
         self.width > other.width && self.height >other.height
     }
     
@@ -40,12 +39,12 @@ impl Rectangle{
         self.width == self.height
     }
 
-    fn bigger_rect(&self, other: Self) -> Self {
+    fn bigger_rect(&self, other: &Self) -> &str {
         
             if self.area() >= other.area(){
-                 self
+                  "first rectangle"
             }else{
-                other
+                "Second rectangle"
             }
 
     }
@@ -61,8 +60,8 @@ fn main(){
     println!("The rectangle has an area of {}",recta.area());
     println!("The rectangle has a perimeter of  {}",recta.perimeter());
     let rectb = Rectangle::create_sq(5);
-    println!("Rectangle {:#?} is bigger",recta.bigger_rect(rectb));
-    println!("Rectangle fits {:#?}", recta.can_fit(rectb));
+    println!("Rectangle {} is bigger",recta.bigger_rect(&rectb));
+    println!("Rectangle fits {}", recta.can_fit(rectb));
     println!("Diagonal length is {}",recta.diag_len());
 
 
