@@ -43,9 +43,9 @@ impl Rectangle{
     fn bigger_rect(&self, other: Self) -> Self {
         
             if self.area() >= other.area(){
-                return *self
+                 self
             }else{
-                return *other
+                other
             }
 
     }
@@ -61,8 +61,8 @@ fn main(){
     println!("The rectangle has an area of {}",recta.area());
     println!("The rectangle has a perimeter of  {}",recta.perimeter());
     let rectb = Rectangle::create_sq(5);
-    println!("Rectangle {:#?} is bigger",recta.bigger_rect(&rectb));
-    println!("Rectangle fits {}", recta.can_fit(rectb));
+    println!("Rectangle {:#?} is bigger",recta.bigger_rect(rectb));
+    println!("Rectangle fits {:#?}", recta.can_fit(rectb));
     println!("Diagonal length is {}",recta.diag_len());
 
 
